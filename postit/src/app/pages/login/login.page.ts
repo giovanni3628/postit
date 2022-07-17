@@ -56,6 +56,11 @@ export class LoginPage implements OnInit {
 
   }
 
+  public logoClick($event): void {
+    console.log($event);
+
+  }
+
   ngOnInit() {
   }
 
