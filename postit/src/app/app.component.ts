@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,32 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private readonly router: Router,
+  ) {
+    console.log(router.events);
+
+    router.events
+    .pipe(filter(event => event instanceof NavigationEnd))
+    .subscribe((route: NavigationEnd) => {
+      console.log(route.url);
+
+      if(this.routesWhithoutNavbar.includes(route.url)){
+        this.canShowNavbar = true;
+      }
+      else{
+        this.canShowNavbar = false;
+      }
+
+    })
+  }
+
+
+  public canShowNavbar: boolean = false;
+  public routesWhithoutNavbar: string[] = ['/login'];
+
+  public routeSubscription: Subscription;
+  public ngOnDestroy(): void{
+    this.routeSubscription.unsubscribe();
+  }
 }
