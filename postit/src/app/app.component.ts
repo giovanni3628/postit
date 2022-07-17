@@ -20,15 +20,14 @@ export class AppComponent {
       console.log(route.url);
 
       if(this.routesWhithoutNavbar.includes(route.url)){
-        this.canShowNavbar = true;
+        this.canShowNavbar = false;
       }
       else{
-        this.canShowNavbar = false;
+        this.canShowNavbar = true;
       }
 
     })
   }
-
 
   public canShowNavbar: boolean = false;
   public routesWhithoutNavbar: string[] = ['/login'];
