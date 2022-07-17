@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { LogoComponent } from 'src/app/components/logo/logo.component';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -17,6 +18,6 @@ import {HalfCircleSpinnerModule} from 'angular-epic-spinners'
     LoginPageRoutingModule,
     HalfCircleSpinnerModule
   ],
-  declarations: [LoginPage]
+  declarations: [LoginPage, LogoComponent]
 })
 export class LoginPageModule {}
