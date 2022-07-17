@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController, AlertController } from '@ionic/angular';
 import { LoginPayload } from 'src/app/models/payloads/login.payload';
 
 
@@ -9,7 +10,10 @@ import { LoginPayload } from 'src/app/models/payloads/login.payload';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private readonly toastController : ToastController,
+    private readonly alertController : AlertController,
+  ) { }
 
   public loginPayload: LoginPayload = {
     email: '',
@@ -18,8 +22,25 @@ export class LoginPage implements OnInit {
 
   public isLoading: boolean = false;
 
-  public login(): void {
+  public async login(): Promise<void> {
     this.isLoading = true;
+
+   const toast = await this.toastController.create({
+      message: 'Logando...',
+      duration: 2000 // 2s
+    })
+    toast.present();
+
+   const alert =  await this.alertController.create({
+      header: 'Hello World',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {console.log('OK!')}
+        }
+      ]
+    })
+    alert.present();
     console.log(this.loginPayload);
   }
 
