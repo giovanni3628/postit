@@ -19,7 +19,7 @@ export class AppComponent {
     .subscribe((route: NavigationEnd) => {
       console.log(route.url);
 
-      if(this.routesWhithoutNavbar.includes(route.url)){
+      if(this.routesWhithoutNavbar.includes(route.urlAfterRedirects)){
         this.canShowNavbar = false;
       }
       else{
