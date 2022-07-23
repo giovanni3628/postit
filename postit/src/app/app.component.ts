@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnDestroy } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -8,32 +8,31 @@ import { filter } from 'rxjs/operators';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   constructor(
     private readonly router: Router,
   ) {
-    console.log(router.events);
+    this.routeSubscription = router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((route: NavigationEnd) => {
+        console.log(route);
 
-    router.events
-    .pipe(filter(event => event instanceof NavigationEnd))
-    .subscribe((route: NavigationEnd) => {
-      console.log(route.url);
-
-      if(this.routesWhithoutNavbar.includes(route.urlAfterRedirects)){
-        this.canShowNavbar = false;
-      }
-      else{
-        this.canShowNavbar = true;
-      }
-
-    })
+        if (!this.routesWithoutNavbar.includes(route.urlAfterRedirects)) {
+          this.canShowNavbar = true;
+        }
+        else {
+          this.canShowNavbar = false;
+        }
+      });
   }
 
   public canShowNavbar: boolean = false;
-  public routesWhithoutNavbar: string[] = ['/login', '/signup'];
+  public routesWithoutNavbar: string[] = ['/login'];
 
   public routeSubscription: Subscription;
-  public ngOnDestroy(): void{
+
+  public ngOnDestroy(): void {
     this.routeSubscription.unsubscribe();
   }
+
 }

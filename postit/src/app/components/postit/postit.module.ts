@@ -14,6 +14,6 @@ import { PostitComponent } from "./postit.component";
     exports: [
         PostitComponent
     ],
-
 })
-export class PostitModule { }
+
+export class PostItModule { }

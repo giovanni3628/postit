@@ -9,6 +9,9 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+@import url(theme/button.scss);
+@import url(theme/input.scss);
+
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
 
@@ -25,25 +28,29 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-@import url(theme/button.scss);
-@import url(theme/input.scss);
-
-/**Fonts**/
+/** Fonts **/
 * {
-    font-family: "OpenSans";
+  font-family: "OpenSans";
 }
+
 @font-face {
-    font-family: 'OpenSans';
-    src: url(assets/fonts/OpenSans-Light.ttf);
-    font-weight: 300;
+  font-family: 'OpenSans';
+  src: url('assets/fonts/OpenSans-Light.ttf');
+  font-weight: 300;
 }
+
 @font-face {
-    font-family: 'OpenSans';
-    src: url(assets/fonts/OpenSans-Regular.ttf);
-    font-weight: 400;
+  font-family: 'OpenSans';
+  src: url('assets/fonts/OpenSans-Regular.ttf');
+  font-weight: 400;
 }
+
 @font-face {
-    font-family: 'OpenSans';
-    src: url(assets/fonts/OpenSans-Bold.ttf);
-    font-weight: 600;
+  font-family: 'OpenSans';
+  src: url('assets/fonts/OpenSans-Bold.ttf');
+  font-weight: 600;
+}
+
+.background-modal {
+  --background: transparent;
 }

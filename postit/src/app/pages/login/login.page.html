@@ -28,15 +28,15 @@
 <div class="initial">
 
   <div class="initial--background">
-    <img src="assets/images/Imagem 5.png" alt="">
+    <img src="assets/imgs/login_background.png" alt="">
   </div>
 
   <div class="body" [class.signing--body]="isSigning">
 
   <header>
     <div class="logo" [class.signing--logo]="isSigning">
-      <img [class.hidden]="!isSigning" (click)="isSigning = !isSigning" src="assets/images/Caminho 90.svg" alt="">
-      <app-logo [class.signing--logo--img]="isSigning" src="assets/images/LOGO.svg" [full]="false" (onClick)="logoClick($event)"></app-logo>
+      <img [class.hidden]="!isSigning" (click)="isSigning = !isSigning" src="assets/imgs/login_backbutton.svg" alt="">
+      <app-logo [class.signing--logo--img]="isSigning" src="assets/imgs/login_logo.svg" [full]="false" (onClick)="logoClick($event)"></app-logo>
       <!-- <img class="logo--img" [class.signing--logo--img]="isSigning" src="../../../assets/imgs/login_short.svg" alt=""> -->
       <div class="empty"></div>
     </div>

@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./pages/main/profile/profile.module').then( m => m.ProfilePageModule)
-  },
-  {
     path: 'home',
     loadChildren: () => import('./pages/main/home/home.module').then( m => m.HomePageModule)
   },
@@ -24,8 +20,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/main/feed/feed.module').then( m => m.FeedPageModule)
   },
   {
-    path: 'signup',
-    loadChildren: () => import('./pages/signup/signup.module').then( m => m.SignupPageModule)
+    path: 'profile',
+    loadChildren: () => import('./pages/main/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: '**',
