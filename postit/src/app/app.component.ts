@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   public canShowNavbar: boolean = false;
-  public routesWhithoutNavbar: string[] = ['/login'];
+  public routesWhithoutNavbar: string[] = ['/login', '/signup'];
 
   public routeSubscription: Subscription;
   public ngOnDestroy(): void{
